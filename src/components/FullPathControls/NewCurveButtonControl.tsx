@@ -19,8 +19,11 @@ const NewCurveButtonControl: React.FC<NewCurveButtonControlProps> = ({ afterSele
   }, [afterSelected, dispatch]);
 
   return (
-    <CurveButton css={{ backgroundColor: 'lightgreen' }} onClick={onNewCurveButtonClick}>
-      +
+    <CurveButton
+      css={{ width: 'auto', backgroundColor: 'lightgreen' }}
+      onClick={onNewCurveButtonClick}
+    >
+      + New {afterSelected ? 'after selected' : ''}
     </CurveButton>
   );
 };

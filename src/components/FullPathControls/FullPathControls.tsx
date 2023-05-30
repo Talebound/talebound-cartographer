@@ -4,7 +4,6 @@ import { useFullPathCurves } from '../../hooks/useFullPathCurves.ts';
 import CurveButtonControl from './CurveButtonControl.tsx';
 import NewCurveButtonControl from './NewCurveButtonControl.tsx';
 import DeleteSelectedCurveButtonControl from './DeleteSelectedCurveButtonControl.tsx';
-import { useSelectedCurveIndex } from '../../hooks/useSelectedCurveIndex.ts';
 
 const ButtonsWrapper = styled('div', {
   display: 'flex',
@@ -19,18 +18,15 @@ const FullPathControlsWrapper = styled(ButtonsWrapper, {
 
 const FullPathControls: React.FC = () => {
   const allCurves = useFullPathCurves();
-  const selectedCurveIndex = useSelectedCurveIndex();
 
   return (
     <FullPathControlsWrapper>
       <ButtonsWrapper>
         {allCurves.map((_, index) => (
-          <>
-            <CurveButtonControl key={index} index={index} />
-            {index === selectedCurveIndex && <NewCurveButtonControl afterSelected={true} />}
-          </>
+          <CurveButtonControl key={index} index={index} />
         ))}
         <NewCurveButtonControl />
+        <NewCurveButtonControl afterSelected={true} />
       </ButtonsWrapper>
       <ButtonsWrapper>
         <DeleteSelectedCurveButtonControl />
