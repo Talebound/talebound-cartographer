@@ -1,7 +1,10 @@
 import React, { useEffect } from 'react';
 import { styled } from '@stitches/react';
 import SingleInput from '../CubicCurveControls/SingleInput.tsx';
-import { Point } from '../../utils/types/types.ts';
+import { pointTitles, PointType } from '../../utils/types/types.ts';
+import { useDispatch } from 'react-redux';
+import { updateCurvePoint } from '../../store/appSlice.ts';
+import { useSelectedCurve } from '../../hooks/useSelectedCurve.ts';
 
 const InputsWrapper = styled('div', {
   display: 'flex',
@@ -18,22 +21,28 @@ const PointControlWrapper = styled('div', {
 });
 
 interface PointControlProps {
-  title?: string;
   disabled?: boolean;
-  setPoint: React.Dispatch<React.SetStateAction<Point>>;
+  pointType: PointType;
 }
 
-const PointControl: React.FC<PointControlProps> = ({ title, disabled, setPoint }) => {
+const PointControl: React.FC<PointControlProps> = ({ disabled, pointType }) => {
+  const selectedCurve = useSelectedCurve();
+  const dispatch = useDispatch();
   const [x, setX] = React.useState(0);
   const [y, setY] = React.useState(0);
 
   useEffect(() => {
-    setPoint({ x, y });
+    setX(selectedCurve[pointType].x);
+    setY(selectedCurve[pointType].y);
+  }, [selectedCurve]);
+
+  useEffect(() => {
+    dispatch(updateCurvePoint({ point: { x, y }, type: pointType }));
   }, [x, y]);
 
   return (
     <PointControlWrapper>
-      {title}
+      {pointTitles[pointType]}
       <InputsWrapper>
         <SingleInput title="X" type="x" inputValue={x} setInputValue={setX} disabled={disabled} />
         <SingleInput title="Y" type="y" inputValue={y} setInputValue={setY} disabled={disabled} />

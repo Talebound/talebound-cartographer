@@ -1,10 +1,13 @@
 import './App.css';
 import SvgGenerator from './components/SvgGenerator/SvgGenerator.tsx';
+import { StoreProvider } from './store';
 
 function App() {
   return (
     <>
-      <SvgGenerator />
+      <StoreProvider>
+        <SvgGenerator />
+      </StoreProvider>
     </>
   );
 }
