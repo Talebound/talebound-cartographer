@@ -1,6 +1,6 @@
 import React from 'react';
 import { styled } from '@stitches/react';
-import { useFullPathCurves } from '../../hooks/useFullPathCurves.ts';
+import { useFullPathCurves } from '../../../hooks/useFullPathCurves.ts';
 import CurveButtonControl from './CurveButtonControl.tsx';
 import NewCurveButtonControl from './NewCurveButtonControl.tsx';
 import DeleteSelectedCurveButtonControl from './DeleteSelectedCurveButtonControl.tsx';

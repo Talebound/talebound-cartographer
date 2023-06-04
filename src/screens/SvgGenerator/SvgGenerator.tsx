@@ -1,8 +1,7 @@
 import React from 'react';
 import { styled } from '@stitches/react';
-import CubicCurveControls from '../CubicCurveControls/CubicCurveControls.tsx';
-import SvgComponent from './SvgComponent.tsx';
-import FullPathControls from '../FullPathControls/FullPathControls.tsx';
+import CubicCurveControls from '../../components/SvgGenerator/CubicCurveControls/CubicCurveControls.tsx';
+import SvgComponent from '../../components/SvgGenerator/SvgComponent/SvgComponent.tsx';
 
 const SvgWrapper = styled('div', {
   width: '900px',

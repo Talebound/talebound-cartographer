@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { deleteSelectedCurve } from '../../store/appSlice.ts';
+import { deleteSelectedCurve } from '../../../store/appSlice.ts';
 import { useDispatch } from 'react-redux';
 import { CurveButton } from './CurveButtonControl.tsx';
 

@@ -1,12 +1,13 @@
 import './App.css';
-import SvgGenerator from './components/SvgGenerator/SvgGenerator.tsx';
 import { StoreProvider } from './store';
+import { router } from './routes/router.tsx';
+import { RouterProvider } from 'react-router-dom';
 
 function App() {
   return (
     <>
       <StoreProvider>
-        <SvgGenerator />
+        <RouterProvider router={router} />
       </StoreProvider>
     </>
   );

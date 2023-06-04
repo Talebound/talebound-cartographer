@@ -1,5 +1,5 @@
 import React, { useCallback } from 'react';
-import { createNewCurveAfterSelected, createNewCurveAtTheEnd } from '../../store/appSlice.ts';
+import { createNewCurveAfterSelected, createNewCurveAtTheEnd } from '../../../store/appSlice.ts';
 import { useDispatch } from 'react-redux';
 import { CurveButton } from './CurveButtonControl.tsx';
 

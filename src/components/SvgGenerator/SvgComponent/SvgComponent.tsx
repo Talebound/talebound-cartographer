@@ -1,5 +1,5 @@
 import React from 'react';
-import { useGetSelectedCurveElements } from '../../hooks/useGetSelectedCurveElements.tsx';
+import { useGetSelectedCurveElements } from '../../../hooks/useGetSelectedCurveElements.tsx';
 
 const SvgComponent: React.FC = () => {
   const curveElements = useGetSelectedCurveElements();
