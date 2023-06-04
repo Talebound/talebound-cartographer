@@ -8,7 +8,6 @@ export const router = createBrowserRouter(
     <Route path="/" element={<PageLayout />}>
       <Route path="svg-generator" element={<SvgGenerator />} />
       <Route path="map-generator" element={<MapGenerator />} />
-      <Route path="/" element={<MapGenerator />} />
     </Route>,
   ),
 );

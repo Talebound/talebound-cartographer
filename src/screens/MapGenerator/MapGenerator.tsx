@@ -1,11 +1,8 @@
 import React from 'react';
+import MapComponent from './components/MapComponent.tsx';
 
 const MapGenerator: React.FC = () => {
-  return (
-    <div>
-      <h1>Map Generator</h1>
-    </div>
-  );
+  return <MapComponent />;
 };
 
 export default MapGenerator;
