@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
-import { CubicCurve } from '../utils/types/types.ts';
-import { ctt, fptt, ptt } from '../utils/functions/pointFunctions.ts';
+import { CubicCurve } from '../../../utils/types/types.ts';
+import { ctt, fptt, ptt } from '../../../utils/functions/pointFunctions.ts';
 import { useFullPath } from './useFullPath.ts';
 
 export function useGetCurveElements(curve: CubicCurve): React.ReactNode {

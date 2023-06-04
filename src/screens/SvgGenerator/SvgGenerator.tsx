@@ -1,7 +1,7 @@
 import React from 'react';
 import { styled } from '@stitches/react';
-import CubicCurveControls from '../../components/SvgGenerator/CubicCurveControls/CubicCurveControls.tsx';
-import SvgComponent from '../../components/SvgGenerator/SvgComponent/SvgComponent.tsx';
+import CubicCurveControls from './components/CubicCurveControls/CubicCurveControls.tsx';
+import SvgComponent from './components/SvgComponent/SvgComponent.tsx';
 
 const SvgWrapper = styled('div', {
   width: '900px',
@@ -16,15 +16,12 @@ const RowWrapper = styled('div', {
 
 const SvgGenerator: React.FC = () => {
   return (
-    <div>
-      <h1>SVG Generator</h1>
-      <RowWrapper>
-        <SvgWrapper>
-          <SvgComponent />
-        </SvgWrapper>
-        <CubicCurveControls />
-      </RowWrapper>
-    </div>
+    <RowWrapper>
+      <SvgWrapper>
+        <SvgComponent />
+      </SvgWrapper>
+      <CubicCurveControls />
+    </RowWrapper>
   );
 };
 
