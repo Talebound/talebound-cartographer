@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { FullPath, Point, PointType } from '../utils/types/types.ts';
 import { reversePoint } from '../utils/functions/pointFunctions.ts';
 
-export interface AppState {
+export interface SvgGenState {
   fullPath: FullPath;
   selectedCurveIndex: number;
 }
@@ -19,7 +19,7 @@ const baseCurve = {
   endControlPoint: { ...basePoint },
 };
 
-const initialState: AppState = {
+const initialState: SvgGenState = {
   fullPath: {
     startPoint: { ...basePoint },
     curves: [{ ...baseCurve }],
@@ -27,8 +27,8 @@ const initialState: AppState = {
   selectedCurveIndex: 0,
 };
 
-export const appSlice = createSlice({
-  name: 'app',
+export const svgGenSlice = createSlice({
+  name: 'svggen',
   initialState,
   reducers: {
     setPathStartPoint: (state, action: PayloadAction<Point>) => {
@@ -92,6 +92,6 @@ export const {
   setSelectedCurveIndex,
   createNewCurveAtTheEnd,
   updateCurvePoint,
-} = appSlice.actions;
+} = svgGenSlice.actions;
 
-export const appReducer = appSlice.reducer;
+export const svgGenReducer = svgGenSlice.reducer;

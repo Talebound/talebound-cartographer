@@ -3,7 +3,7 @@ import { styled } from '@stitches/react';
 import SingleInput from '../CubicCurveControls/SingleInput.tsx';
 import { pointTitles, PointType } from '../../../../utils/types/types.ts';
 import { useDispatch } from 'react-redux';
-import { updateCurvePoint } from '../../../../store/appSlice.ts';
+import { updateCurvePoint } from '../../../../store/svgGenSlice.ts';
 import { useSelectedCurve } from '../../hooks/useSelectedCurve.ts';
 
 const InputsWrapper = styled('div', {

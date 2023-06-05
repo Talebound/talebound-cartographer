@@ -5,5 +5,5 @@ import { useSelectedCurveIndex } from './useSelectedCurveIndex.ts';
 
 export function useSelectedCurve(): CubicCurve {
   const selectedCurveIndex = useSelectedCurveIndex();
-  return useSelector((state: ReduxState) => state.app.fullPath.curves[selectedCurveIndex]);
+  return useSelector((state: ReduxState) => state.svggen.fullPath.curves[selectedCurveIndex]);
 }

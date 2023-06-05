@@ -1,6 +1,6 @@
 import React, { useCallback } from 'react';
 import { styled } from '@stitches/react';
-import { setSelectedCurveIndex } from '../../../../store/appSlice.ts';
+import { setSelectedCurveIndex } from '../../../../store/svgGenSlice.ts';
 import { useDispatch } from 'react-redux';
 import { useSelectedCurveIndex } from '../../hooks/useSelectedCurveIndex.ts';
 
