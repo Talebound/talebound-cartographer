@@ -2,10 +2,11 @@ import React from 'react';
 import MapComponent from './components/MapComponent/MapComponent.tsx';
 import { styled } from '@stitches/react';
 import ControllerSectionColumn from './components/ControllerSection/ControllerSectionColumn.tsx';
+import MapGeneratorControls from './components/MapGeneratorControls/MapGeneratorControls.tsx';
 
 const MapWrapper = styled('div', {
-  width: '1200px',
-  height: '800px',
+  width: '904px',
+  height: '604px',
   border: '2px solid black',
 });
 
@@ -21,7 +22,9 @@ const MapGenerator: React.FC = () => {
       <MapWrapper>
         <MapComponent />
       </MapWrapper>
-      <ControllerSectionColumn>test</ControllerSectionColumn>
+      <ControllerSectionColumn>
+        <MapGeneratorControls />
+      </ControllerSectionColumn>
     </RowWrapper>
   );
 };

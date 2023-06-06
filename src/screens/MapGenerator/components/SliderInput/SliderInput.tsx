@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Col, InputNumber, Row, Slider } from 'antd';
 
 interface SliderInputProps {
@@ -7,7 +7,7 @@ interface SliderInputProps {
   inputValue: number;
   minValue?: number;
   maxValue?: number;
-  setInputValue: React.Dispatch<React.SetStateAction<number>>;
+  setInputValue: (newValue: number) => void;
 }
 
 const SliderInput: React.FC<SliderInputProps> = ({
@@ -18,19 +18,30 @@ const SliderInput: React.FC<SliderInputProps> = ({
   maxValue,
   setInputValue,
 }) => {
+  const [internalValue, setInternalValue] = useState<number>(inputValue);
+
+  useEffect(() => {
+    setInternalValue(inputValue);
+  }, [inputValue]);
+
   const onChange = (newValue: number | null) => {
+    setInternalValue(newValue ?? 0);
+  };
+
+  const onAfterChange = (newValue: number | null) => {
     setInputValue(newValue ?? 0);
   };
 
   return (
-    <Row align="middle" style={{ width: '50%' }}>
+    <Row align="middle" style={{ width: '50%', gap: '1rem' }}>
       <Col span={12}>
         <Slider
           disabled={disabled}
           min={minValue}
           max={maxValue}
           onChange={onChange}
-          value={typeof inputValue === 'number' ? inputValue : 0}
+          onAfterChange={onAfterChange}
+          value={internalValue}
         />
       </Col>
       {title}:
@@ -40,8 +51,8 @@ const SliderInput: React.FC<SliderInputProps> = ({
           min={minValue}
           max={maxValue}
           style={{ margin: '0 16px' }}
-          value={inputValue}
-          onChange={onChange}
+          value={internalValue}
+          onChange={onAfterChange}
         />
       </Col>
     </Row>

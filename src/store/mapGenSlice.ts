@@ -11,8 +11,8 @@ export interface MapGenState {
 
 const initialState: MapGenState = {
   mapSetup: {
-    width: 300,
-    height: 300,
+    width: 900,
+    height: 600,
     seed: Math.random() * 10000,
     noiseDetail: {
       lod: 10,
@@ -21,8 +21,8 @@ const initialState: MapGenState = {
   },
   mapScreen: {
     changed: true,
-    xOffset: 10000,
-    yOffset: 10000,
+    xOffset: 0,
+    yOffset: 0,
     zoomFactor: 200,
     minZoomFactor: 10,
     cameraSpeed: 10,
