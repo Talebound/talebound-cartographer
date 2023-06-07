@@ -66,6 +66,39 @@ const MapComponent = () => {
 
   const draw = useCallback(
     (p5: P5) => {
+      if (p5.keyIsDown(p5.RIGHT_ARROW)) {
+        dispatch(
+          setMapScreen({
+            xOffset: mapScreen.xOffset + mapScreen.cameraSpeed,
+            changed: true,
+          }),
+        );
+      }
+      if (p5.keyIsDown(p5.LEFT_ARROW)) {
+        dispatch(
+          setMapScreen({
+            xOffset: mapScreen.xOffset - mapScreen.cameraSpeed,
+            changed: true,
+          }),
+        );
+      }
+      if (p5.keyIsDown(p5.UP_ARROW)) {
+        dispatch(
+          setMapScreen({
+            yOffset: mapScreen.yOffset - mapScreen.cameraSpeed,
+            changed: true,
+          }),
+        );
+      }
+      if (p5.keyIsDown(p5.DOWN_ARROW)) {
+        dispatch(
+          setMapScreen({
+            yOffset: mapScreen.yOffset + mapScreen.cameraSpeed,
+            changed: true,
+          }),
+        );
+      }
+
       if (offsetXSlider && offsetYSlider && zoomSlider) {
         // const offsetX = offsetXSlider.value() as number;
         // const offsetY = offsetYSlider.value() as number;
@@ -117,36 +150,4 @@ export default MapComponent;
 
 /*
 
-      if (p5.keyIsDown(p5.RIGHT_ARROW)) {
-        dispatch(
-          setMapScreen({
-            xOffset: mapScreen.xOffset + (1 / mapScreen.zoomFactor) * mapScreen.cameraSpeed,
-            changed: true,
-          }),
-        );
-      }
-      if (p5.keyIsDown(p5.LEFT_ARROW)) {
-        dispatch(
-          setMapScreen({
-            xOffset: mapScreen.xOffset - (1 / mapScreen.zoomFactor) * mapScreen.cameraSpeed,
-            changed: true,
-          }),
-        );
-      }
-      if (p5.keyIsDown(p5.UP_ARROW)) {
-        dispatch(
-          setMapScreen({
-            yOffset: mapScreen.yOffset - (1 / mapScreen.zoomFactor) * mapScreen.cameraSpeed,
-            changed: true,
-          }),
-        );
-      }
-      if (p5.keyIsDown(p5.DOWN_ARROW)) {
-        dispatch(
-          setMapScreen({
-            yOffset: mapScreen.yOffset + (1 / mapScreen.zoomFactor) * mapScreen.cameraSpeed,
-            changed: true,
-          }),
-        );
-      }
  */
